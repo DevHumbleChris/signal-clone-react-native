@@ -24,5 +24,21 @@
   "devDependencies": {
     "@babel/core": "^7.12.9"
   },
-  "private": true
+  "private": true,
+  "description": "Signal React Native Clone",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevHumbleChris/signal-clone-react-native.git"
+  },
+  "keywords": [
+    "signal-clone",
+    "react-native",
+    "signal-react-native"
+  ],
+  "author": "AmChrisKE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DevHumbleChris/signal-clone-react-native/issues"
+  },
+  "homepage": "https://github.com/DevHumbleChris/signal-clone-react-native#readme"
 }
