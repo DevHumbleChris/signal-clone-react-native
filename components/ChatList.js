@@ -1,11 +1,14 @@
-import { View, Text } from "react-native";
+import { View, Text, } from "react-native";
 import React from "react";
 import { Avatar, ListItem } from "@rneui/base";
 import tw from "twrnc";
 
-const ChatList = ({ id, chatName }) => {
+const ChatList = ({ id, chatName, navigation }) => {
   const enterChat = () => {
-    console.log(id, chatName)
+    navigation.navigate('ChatScreen', {
+      id,
+      chatName
+    })
   }
   return (
     <ListItem style={tw``} key={id} onPress={enterChat}>

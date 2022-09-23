@@ -3,14 +3,16 @@ import { createSlice } from '@reduxjs/toolkit'
 export const chatSlice = createSlice({
     name: 'chartSlice',
     initialState: {
-        chatNames: []
+        rooms: []
     },
     reducers: {
-        addChatName: (state, action) => {
-            console.log(action.payload)
+        addChatRoom: (state, action) => {
+            const rooms = [...state.rooms, action.payload]
+            state.rooms = rooms
+            console.log(state.rooms)
         }
     }
 })
 
-export const { addChatName } = chatSlice.actions
+export const { addChatRoom } = chatSlice.actions
 export default chatSlice.reducer

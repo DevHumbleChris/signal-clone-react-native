@@ -3,6 +3,6 @@ import chatSlice from "./slices/chartSlice";
 
 export const store = configureStore({
     reducer: {
-        chats: chatSlice
+        chatRooms: chatSlice
     }
 })

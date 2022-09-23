@@ -4,11 +4,12 @@ import tw from "twrnc";
 import { Icon, Input } from "@rneui/base";
 import ChatList from "./ChatList";
 import { db, getDocs, collection } from "../firebaseConfigs";
-
-const height = Dimensions.get("window").height;
+import { useDispatch } from "react-redux";
+import { addChatRoom } from "../store/slices/chartSlice";
 
 const ConversationList = ({ navigation }) => {
   const [chats, setChats] = useState([])
+  const dispatch = useDispatch()
   const getChats = async () => {
     try {
       const querySnapShot = await getDocs(collection(db, 'chats'))
@@ -18,6 +19,10 @@ const ConversationList = ({ navigation }) => {
           id: doc.id,
           data: doc.data()
         })
+        // dispatch(addChatRoom({
+        //   id: doc.id,
+        //   data: doc.data()
+        // }))
       })
       setChats(tempData)
     } catch (err) {
@@ -44,7 +49,7 @@ const ConversationList = ({ navigation }) => {
       <ScrollView>
       {chats.map(({ id, data: { chatName }}) => {
         return (
-          <ChatList key={id} chatName={chatName} id={id} />
+          <ChatList key={id} chatName={chatName} id={id} navigation={navigation} />
         )
       })}
       </ScrollView>

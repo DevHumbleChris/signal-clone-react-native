@@ -18,11 +18,11 @@ function App() {
     <Provider store={store}>
       <SafeAreaProvider>
         <NavigationContainer>
-          <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Signup" component={SignupScreen} />
-            <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="AddChat" component={AddChatScreen} />
+          <Stack.Navigator>
+            <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="Signup" component={SignupScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="AddChat" component={AddChatScreen} options={{ headerShown: false }}/>
             <Stack.Screen name="ChatScreen" component={ChatScreen} />
           </Stack.Navigator>
         </NavigationContainer>
