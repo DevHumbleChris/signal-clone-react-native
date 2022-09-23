@@ -1,12 +1,29 @@
 import { View, Text } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button, Image, Input } from "@rneui/themed";
 import tw from "twrnc";
+import { auth, onAuthStateChanged, signInWithEmailAndPassword } from '../firebaseConfigs'
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigation.replace('Home')
+      }
+    })
+  }, [])
+
+  const signIn = () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then(authUser => {
+        console.log(authUser.user)
+      })
+      .catch(err => alert(err.message))
+  }
   return (
     <SafeAreaView>
       <View style={tw`mx-auto`}>
@@ -27,7 +44,7 @@ const LoginScreen = ({ navigation }) => {
           placeholder="email"
           type="email"
           value={email}
-          onChangeText={(text) => setEmail(email)}
+          onChangeText={(text) => setEmail(text)}
         />
         <Input
           placeholder="password"
@@ -41,6 +58,7 @@ const LoginScreen = ({ navigation }) => {
           buttonStyle={{
             backgroundColor: "#3772e8",
           }}
+          onPress={signIn}
         />
         <Button
           title="Register"

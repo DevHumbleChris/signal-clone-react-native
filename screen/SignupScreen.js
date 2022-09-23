@@ -13,7 +13,7 @@ const SignupScreen = ({ navigation }) => {
   const registerAccount = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then(authUser => {
-        authUser.updateProfile({
+        authUser.user.updateProfile({
           displayName: username
         })
       })
