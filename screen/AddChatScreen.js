@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import tw from "twrnc";
-import { Input, Button, Icon } from "@rneui/themed";
+import { Input, Button, Icon } from "@rneui/base";
 import { db, collection, addDoc } from "../firebaseConfigs";
 
 const AddChatScreen = ({ navigation }) => {
@@ -17,7 +17,7 @@ const AddChatScreen = ({ navigation }) => {
         chatName
       })
       setChatName('')
-      navigation.goBack()
+      navigation.navigate('Home')
       console.log(docRef.id)
     } catch (err) {
       alert(`Error: ${err.message}`)

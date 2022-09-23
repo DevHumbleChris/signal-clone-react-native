@@ -1,11 +1,14 @@
 import { View, Text } from "react-native";
 import React from "react";
-import { Avatar, ListItem } from "@rneui/themed";
+import { Avatar, ListItem } from "@rneui/base";
 import tw from "twrnc";
 
-const ChatList = () => {
+const ChatList = ({ id, chatName }) => {
+  const enterChat = () => {
+    console.log(id, chatName)
+  }
   return (
-    <ListItem style={tw``}>
+    <ListItem style={tw``} key={id} onPress={enterChat}>
       <Avatar
         rounded
         size={55}
@@ -15,7 +18,7 @@ const ChatList = () => {
       />
       <ListItem.Content>
         <ListItem.Title style={tw`text-lg font-bold text-gray-600`}>
-          Hello
+          { chatName }
         </ListItem.Title>
         <ListItem.Subtitle
           style={tw`text-gray-500`}

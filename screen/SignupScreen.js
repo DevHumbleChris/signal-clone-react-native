@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import React, { useState } from "react";
-import { Image, Input, Button } from "@rneui/themed";
+import { Image, Input, Button } from "@rneui/base";
 import { SafeAreaView } from "react-native-safe-area-context";
 import tw from "twrnc";
 import { auth, createUserWithEmailAndPassword } from '../firebaseConfigs'
