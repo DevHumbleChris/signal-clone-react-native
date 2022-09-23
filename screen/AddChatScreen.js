@@ -4,9 +4,25 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import tw from "twrnc";
 import { Input, Button, Icon } from "@rneui/themed";
+import { db, collection, addDoc } from "../firebaseConfigs";
 
 const AddChatScreen = ({ navigation }) => {
   const [chatName, setChatName] = useState("");
+  const addChatName = async () => {
+    if (!chatName) {
+      alert('Chat Name Reguired')
+    }
+    try {
+      const docRef = await addDoc(collection(db, 'chats'), {
+        chatName
+      })
+      setChatName('')
+      navigation.goBack()
+      console.log(docRef.id)
+    } catch (err) {
+      alert(`Error: ${err.message}`)
+    }
+  }
   return (
     <SafeAreaView style={tw`bg-white flex-1`}>
       <View style={tw`flex-row p-3 mt-3`}>
@@ -33,6 +49,7 @@ const AddChatScreen = ({ navigation }) => {
           buttonStyle={{
             backgroundColor: "#3772e8",
           }}
+          onPress={addChatName}
         />
       </View>
       </View>
