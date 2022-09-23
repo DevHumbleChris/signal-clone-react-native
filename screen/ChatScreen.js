@@ -24,7 +24,7 @@ const ChatScreen = ({ route, navigation }) => {
               name="phone"
               type="material-community"
               color="black"
-              size={35}
+              size={30}
             />
           </TouchableOpacity>
         </View>
