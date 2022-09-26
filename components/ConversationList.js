@@ -31,7 +31,7 @@ const ConversationList = ({ navigation }) => {
   }
   useEffect(() => {
     getChats()
-  }, [chats])
+  }, [])
   return (
     <View
     >

@@ -5,10 +5,11 @@ import tw from "twrnc";
 
 const ChatList = ({ id, chatName, navigation }) => {
   const enterChat = () => {
-    navigation.navigate('ChatScreen', {
-      id,
-      chatName
-    })
+    // navigation.navigate('ChatScreen', {
+    //   id,
+    //   chatName
+    // })
+    navigation.navigate('ChatScreen')
   }
   return (
     <ListItem style={tw``} key={id} onPress={enterChat}>
